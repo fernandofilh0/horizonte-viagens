@@ -28,8 +28,9 @@ O site "Horizonte Viagens" é uma landing page de demonstração desenvolvida pa
 O projeto foi construído em etapas, focando na organização do código e na interatividade:
 
 1.  **Estruturação:** Montagem inicial do layout e componentes com HTML/Bootstrap.
-2.  **Estilização:** Criação das variáveis de cor (`:root`) e estilos, incluindo o efeito Parallax e Dark Mode.
-3.  **Implementação da Lógica:** Inclusão das funcionalidades interativas, como o sistema CRUD (Create, Read, Update, Delete) de Favoritos e a renderização dinâmica dos cards.
+2.  **Estilização:** Criação das variáveis de cor e estilos.
+3.  **Refatoração (Separação de Arquivos):** O código foi integralmente separado em três arquivos (`index.html`, `style.css`, `script.js`) para modularidade e organização.
+4.  **Lógica Interativa:** Inclusão das funcionalidades interativas, como o sistema CRUD de Favoritos e a renderização dinâmica.
 
 ## Facilidades e Dificuldades
 
@@ -37,7 +38,7 @@ O projeto foi construído em etapas, focando na organização do código e na in
 
 * **Uso do Bootstrap 5:** Simplificou a criação da interface de usuário e garantiu a responsividade.
 * **Organização do CSS com Variáveis:** Facilitou a implementação centralizada do Dark Mode.
-* **Refatoração:** Manter o código em um único arquivo (`index.html`) para este projeto inicial manteve a coesão.
+* **Dados Centralizados em JS:** A organização dos destinos em um array de objetos JavaScript (`destinationsData`) permitiu uma renderização dinâmica e um gerenciamento centralizado dos dados.
 
 ### ⚠️ Dificuldades
 
@@ -49,6 +50,7 @@ O projeto foi construído em etapas, focando na organização do código e na in
 
 * **Repositório do Código:** `https://github.com/fernandofilh0/horizonte-viagens`
 * **Página Online (GitHub Pages):** (https://fernandofilh0.github.io/horizonte-viagens/#)
+
 
 
 
