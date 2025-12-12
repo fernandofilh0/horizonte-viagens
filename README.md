@@ -48,7 +48,8 @@ O projeto foi construído em etapas, focando na organização do código e na in
 ## 🔗 Links para Submissão
 
 * **Repositório do Código:** `https://github.com/fernandofilh0/horizonte-viagens`
-* **Página Online (GitHub Pages):** ()
+* **Página Online (GitHub Pages):** (https://fernandofilh0.github.io/horizonte-viagens/#)
+
 
 
 
