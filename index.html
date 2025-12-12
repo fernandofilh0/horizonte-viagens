@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizonte Viagens | Experiências Premium</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="preloader">
+        <div class="text-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status"></div>
+            <p class="mt-2 fw-bold text-primary animate__animated animate__pulse animate__infinite">Preparando sua viagem...</p>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <i class="fa-solid fa-paper-plane fs-4 text-primary"></i>
+                <span class="fw-bold fs-4" style="font-family: var(--font-display);">Horizonte</span>
+            </a>
+            
+            <div class="d-flex align-items-center gap-3 order-lg-3">
+                <button class="btn btn-link text-decoration-none position-relative text-reset" data-bs-toggle="offcanvas" data-bs-target="#favoritesOffcanvas">
+                    <i class="fa-solid fa-heart fs-5 nav-icon"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="favCount">0</span>
+                </button>
+                <button class="btn btn-link nav-icon text-reset" id="themeToggle">
+                    <i class="fa-solid fa-moon fs-5"></i>
+                </button>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav gap-4">
+                    <li class="nav-item"><a class="nav-link" href="#home">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#destinos">Destinos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#servicos">Diferenciais</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#depoimentos">Histórias</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section">
+        <div class="container text-center animate__animated animate__fadeInUp">
+            <span class="text-uppercase tracking-wider mb-2 d-block text-warning fw-bold ls-2">Explore o mundo sem limites</span>
+            <h1 class="hero-title mb-4">Sua próxima aventura <br>começa agora.</h1>
+            <p class="lead mb-5 opacity-75 mx-auto" style="max-width: 600px;">Roteiros exclusivos, hotéis de luxo e experiências inesquecíveis curadas por especialistas.</p>
+            
+            <div class="bg-white p-4 rounded-4 shadow-lg mx-auto d-flex flex-column flex-md-row gap-3" style="max-width: 800px;">
+                <div class="input-group input-group-lg border rounded-3 overflow-hidden">
+                    <span class="input-group-text bg-white border-0"><i class="fa-solid fa-location-dot text-primary"></i></span>
+                    <input type="text" id="searchInput" class="form-control border-0 shadow-none" placeholder="Para onde você quer ir?">
+                </div>
+                <button class="btn btn-primary btn-lg fw-bold px-5 rounded-3" onclick="handleSearch()">
+                    Buscar
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <main class="py-5" id="main-container">
+        
+        <section id="destinos" class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3" style="font-family: var(--font-display);">Destinos em Destaque</h2>
+                <div class="d-flex justify-content-center flex-wrap" id="categoryFilters">
+                    <button class="category-btn active" onclick="filterByCategory('all')">Todos</button>
+                    <button class="category-btn" onclick="filterByCategory('Praia')">Praias</button>
+                    <button class="category-btn" onclick="filterByCategory('Cidade')">Cidades</button>
+                    <button class="category-btn" onclick="filterByCategory('Montanha')">Montanhas</button>
+                    <button class="category-btn" onclick="filterByCategory('Exótico')">Exóticos</button>
+                </div>
+            </div>
+
+            <div class="row g-4" id="destinationsGrid">
+                </div>
+            
+            <div id="noResults" class="text-center py-5 d-none">
+                <i class="fa-regular fa-compass fa-3x text-muted mb-3"></i>
+                <h3>Nenhum destino encontrado</h3>
+                <p class="text-muted">Tente ajustar seus filtros ou busca.</p>
+                <button class="btn btn-outline-primary" onclick="resetFilters()">Limpar Filtros</button>
+            </div>
+        </section>
+
+        <section id="servicos" class="bg-white py-5 my-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80" class="img-fluid rounded-4 shadow-lg" alt="Avião">
+                    </div>
+                    <div class="col-lg-6">
+                        <h6 class="text-primary fw-bold text-uppercase">Nossa Excelência</h6>
+                        <h2 class="mb-4 display-6 fw-bold" style="font-family: var(--font-display);">Viaje com total tranquilidade</h2>
+                        <p class="text-muted mb-4">Cuidamos de cada detalhe, desde o momento em que você sai de casa até o seu retorno. Nossa equipe de concierge está disponível 24/7.</p>
+                        
+                        <div class="row g-4 mt-2">
+                            <div class="col-6">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="bg-primary bg-opacity-10 p-3 rounded-circle text-primary">
+                                        <i class="fa-solid fa-users fa-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="fw-bold mb-0">10k+</h3>
+                                        <small class="text-muted">Viajantes Felizes</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="bg-secondary bg-opacity-10 p-3 rounded-circle text-secondary">
+                                        <i class="fa-solid fa-globe fa-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="fw-bold mb-0">50+</h3>
+                                        <small class="text-muted">Países</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="depoimentos" class="container py-5">
+            <h2 class="text-center display-6 fw-bold mb-5" style="font-family: var(--font-display);">O que dizem nossos viajantes</h2>
+            
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="card border-0 shadow-sm p-5 mx-auto text-center" style="max-width: 800px; border-radius: 20px;">
+                            <div class="mb-4">
+                                <i class="fa-solid fa-quote-left fa-3x text-primary opacity-25"></i>
+                            </div>
+                            <p class="fs-4 fst-italic mb-4">"A viagem para as Maldivas superou todas as expectativas. O suporte da equipe Horizonte foi impecável do início ao fim."</p>
+                            <div class="d-flex align-items-center justify-content-center gap-3">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" class="rounded-circle" width="60" alt="User">
+                                <div class="text-start">
+                                    <h6 class="fw-bold mb-0">Mariana Costa</h6>
+                                    <small class="text-muted text-warning"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card border-0 shadow-sm p-5 mx-auto text-center" style="max-width: 800px; border-radius: 20px;">
+                            <div class="mb-4">
+                                <i class="fa-solid fa-quote-left fa-3x text-primary opacity-25"></i>
+                            </div>
+                            <p class="fs-4 fst-italic mb-4">"Nova York com o roteiro personalizado da Horizonte foi outra experiência. Descobrimos lugares que turistas comuns nunca achariam."</p>
+                            <div class="d-flex align-items-center justify-content-center gap-3">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle" width="60" alt="User">
+                                <div class="text-start">
+                                    <h6 class="fw-bold mb-0">Carlos Eduardo</h6>
+                                    <small class="text-muted text-warning"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-dark text-white pt-5 pb-3 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h3 class="fw-bold mb-3" style="font-family: var(--font-display);">Horizonte</h3>
+                    <p class="text-white-50">Transformando sonhos em memórias eternas. A agência de viagens mais inovadora do mercado.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="btn btn-outline-light rounded-circle btn-sm"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-light rounded-circle btn-sm"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-outline-light rounded-circle btn-sm"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h5 class="fw-bold mb-3">Links</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li><a href="#" class="text-reset text-decoration-none mb-2 d-block">Sobre</a></li>
+                        <li><a href="#" class="text-reset text-decoration-none mb-2 d-block">Destinos</a></li>
+                        <li><a href="#" class="text-reset text-decoration-none mb-2 d-block">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h5 class="fw-bold mb-3">Legal</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li><a href="#" class="text-reset text-decoration-none mb-2 d-block">Privacidade</a></li>
+                        <li><a href="#" class="text-reset text-decoration-none mb-2 d-block">Termos</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3">Newsletter</h5>
+                    <p class="text-white-50 small">Receba ofertas exclusivas.</p>
+                    <form class="input-group" onsubmit="event.preventDefault(); alert('Obrigado por se inscrever!')">
+                        <input type="email" class="form-control" placeholder="Seu e-mail">
+                        <button class="btn btn-primary">Assinar</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="border-secondary mt-5">
+            <div class="text-center text-white-50 small">
+                &copy; 2024 Horizonte Viagens. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="favoritesOffcanvas">
+        <div class="offcanvas-header bg-light">
+            <h5 class="offcanvas-title fw-bold">
+                <i class="fa-solid fa-heart text-danger me-2"></i>Meus Favoritos (<span id="favCountOffcanvas">0</span>)
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div id="favoritesList" class="d-flex flex-column gap-3">
+                </div>
+            <div id="emptyFavorites" class="text-center mt-5 text-muted">
+                <i class="fa-regular fa-heart fa-3x mb-3"></i>
+                <p>Você ainda não salvou nenhum destino.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="detailsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 overflow-hidden rounded-4">
+                <div class="position-relative">
+                    <img id="modalImg" src="" class="w-100" style="height: 300px; object-fit: cover;">
+                    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3 bg-white p-2 rounded-circle opacity-100" data-bs-dismiss="modal"></button>
+                    <div class="position-absolute bottom-0 start-0 p-4 text-white" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); width: 100%;">
+                        <h2 class="fw-bold mb-0" id="modalTitle">Título</h2>
+                        <p class="mb-0 opacity-75"><i class="fa-solid fa-location-dot me-2"></i><span id="modalLocation">Local</span></p>
+                    </div>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h5 class="fw-bold mb-3">Sobre o Destino</h5>
+                            <p id="modalDesc" class="text-muted">Descrição...</p>
+                            
+                            <div class="bg-light p-3 rounded-3 mt-4">
+                                <h6 class="fw-bold mb-3"><i class="fa-solid fa-cloud-sun me-2 text-warning"></i>Clima Atual (Simulado)</h6>
+                                <div class="d-flex align-items-center gap-4">
+                                    <div class="display-6 fw-bold text-primary" id="modalTemp">24°C</div>
+                                    <div class="small text-muted border-start ps-4">
+                                        Sensação: <span id="modalFeel">26°C</span><br>
+                                        Umidade: <span id="modalHumidity">60%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 border-start">
+                            <div class="p-3">
+                                <div class="mb-4">
+                                    <small class="text-muted text-uppercase fw-bold">Preço por pessoa</small>
+                                    <div class="h2 fw-bold text-primary" id="modalPrice">R$ 0</div>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary btn-lg fw-bold" onclick="alert('Reserva iniciada!')">Reservar Agora</button>
+                                    <button class="btn btn-outline-secondary" onclick="toggleFavoriteFromModal()"><i class="fa-regular fa-heart me-2"></i>Salvar</button>
+                                </div>
+                                <div class="mt-4 small text-muted">
+                                    <i class="fa-solid fa-check text-success me-2"></i>Cancelamento Grátis<br>
+                                    <i class="fa-solid fa-check text-success me-2"></i>Seguro Incluso
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chat-widget-btn" onclick="toggleChat()">
+        <i class="fa-solid fa-comments"></i>
+    </div>
+
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+            <div class="d-flex align-items-center gap-2">
+                <i class="fa-solid fa-robot"></i>
+                <span class="fw-bold">Assistente Virtual</span>
+            </div>
+            <button class="btn-close btn-close-white" onclick="toggleChat()"></button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">
+                Olá! 👋 Sou o assistente da Horizonte. Como posso ajudar você a planejar sua viagem hoje?
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" class="form-control form-control-sm" placeholder="Digite sua mensagem..." onkeypress="handleChatKey(event)">
+            <button class="btn btn-primary btn-sm" onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
