@@ -1,4 +1,4 @@
-# 🌍 Horizonte Viagens | Experiências Premium
+# Horizonte Viagens | Experiências Premium
 
 **Status do Projeto:** Concluído e Publicado via GitHub Pages
 
@@ -34,22 +34,23 @@ O projeto foi construído em etapas, focando na organização do código e na in
 
 ## Facilidades e Dificuldades
 
-### ✅ Facilidades
+### Facilidades
 
 * **Uso do Bootstrap 5:** Simplificou a criação da interface de usuário e garantiu a responsividade.
 * **Organização do CSS com Variáveis:** Facilitou a implementação centralizada do Dark Mode.
 * **Dados Centralizados em JS:** A organização dos destinos em um array de objetos JavaScript (`destinationsData`) permitiu uma renderização dinâmica e um gerenciamento centralizado dos dados.
 
-### ⚠️ Dificuldades
+### Dificuldades
 
 * **Sincronização de Componentes:** Garantir que o contador de favoritos fosse atualizado em múltiplos pontos (Navbar e Offcanvas) e que a função `updateNavbar()` funcionasse corretamente no scroll e na mudança de tema.
 * **Manipulação de DOM:** A renderização dinâmica dos cards (`renderDestinations`) e a atualização síncrona dos ícones de coração (favoritos) após as interações.
 * **UX do Chatbot:** Ajustar o scroll automático das mensagens para melhorar a experiência do usuário.
 
-## 🔗 Links para Submissão
+## Links para Submissão
 
 * **Repositório do Código:** `https://github.com/fernandofilh0/horizonte-viagens`
 * **Página Online (GitHub Pages):** (https://fernandofilh0.github.io/horizonte-viagens/#)
+
 
 
 
