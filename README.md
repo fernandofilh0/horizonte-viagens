@@ -48,20 +48,7 @@ O projeto foi construído em etapas, focando na organização do código e na in
 ## 🔗 Links para Submissão
 
 * **Repositório do Código:** `https://github.com/fernandofilh0/horizonte-viagens`
-* **Página Online (GitHub Pages):** (O link aparecerá após a ativação no Passo 2)
+* **Página Online (GitHub Pages):** ()
 
----
 
-## 🔁 Próxima Ação: Atualizar o GitHub
 
-Depois de **salvar a versão corrigida do `README.md`** na sua pasta local, execute os comandos Git novamente para atualizar o seu repositório:
-
-```bash
-# Adiciona o arquivo README.md corrigido
-git add README.md
-
-# Cria um novo commit para registrar a correção
-git commit -m "Corrige formatação do README"
-
-# Envia a correção para o GitHub
-git push origin main
