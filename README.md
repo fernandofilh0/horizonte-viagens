@@ -15,7 +15,7 @@ O site "Horizonte Viagens" é uma landing page de demonstração desenvolvida pa
 * **Navbar com Efeito Glassmorphism/Scroll:** O cabeçalho se adapta ao scroll para garantir legibilidade.
 * **Chatbot (Simulado):** Widget de chat interativo simulando respostas rápidas para o usuário.
 
-## ⚙️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 * **HTML5:** Estrutura semântica (com CSS e JS embutidos).
 * **CSS3:** Estilização customizada e variáveis CSS para suporte a temas.
@@ -50,6 +50,7 @@ O projeto foi construído em etapas, focando na organização do código e na in
 
 * **Repositório do Código:** `https://github.com/fernandofilh0/horizonte-viagens`
 * **Página Online (GitHub Pages):** (https://fernandofilh0.github.io/horizonte-viagens/#)
+
 
 
 
