@@ -1,7 +1,5 @@
 # Horizonte Viagens | Experiências Premium
 
-**Status do Projeto:** Concluído e Publicado via GitHub Pages
-
 ## Descrição do Site
 
 O site "Horizonte Viagens" é uma landing page de demonstração desenvolvida para simular a vitrine de uma agência de viagens de luxo, utilizando recursos avançados de front-end.
@@ -50,6 +48,7 @@ O projeto foi construído em etapas, focando na organização do código e na in
 
 * **Repositório do Código:** `https://github.com/fernandofilh0/horizonte-viagens`
 * **Página Online (GitHub Pages):** (https://fernandofilh0.github.io/horizonte-viagens/#)
+
 
 
 
